@@ -10,8 +10,6 @@ jobs:
     build:
       name: Install
       runs-on: windows-latest
-      env:
-       NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       steps:
         - uses: actions/checkout@v2
         - name: Setup .NET Core
@@ -20,8 +18,8 @@ jobs:
             dotnet-version: '6.0' # SDK Version to use.
             source-url: https://nuget.pkg.github.com/test-nuget-2/index.json
           env:
-            NUGET_AUTH_TOKEN: ${{ secrets.READ_WRITE_PACKAGES_TOKEN }}
-        
+            NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+            
         #- name: dotnet install
         #  run: dotnet restore
         #  continue-on-error: true
