@@ -9,7 +9,12 @@
     <Version>1.0.0</Version>
     <Authors>Anshika</Authors>
     <Company>github</Company>
-    <RepositoryUrl>https://github.com/test-nuget-2/sample-nuget-install</RepositoryUrl>
+    <RepositoryUrl>https://github.com/test-nuget-2/sample-nuget</RepositoryUrl>
     <PackageTags>latest</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="sample-nuget" Version="2.2.0" />
+  </ItemGroup>
+
 </Project>
