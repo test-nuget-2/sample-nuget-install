@@ -25,5 +25,5 @@ jobs:
         #  continue-on-error: true
           
         - name: curl install
-          run: curl -vL https://user:${{ secrets.READ_WRITE_PACKAGES_TOKEN }}@nuget.pkg.github.com/test-nuget-2/download/Testpackage1/index.json
+          run: curl -vL https://user:${{secrets.GITHUB_TOKEN}}@nuget.pkg.github.com/test-nuget-2/download/Testpackage1/index.json
           continue-on-error: true
