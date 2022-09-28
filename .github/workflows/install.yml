@@ -1,0 +1,45 @@
+name: dotnet-install
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+    build:
+      name: Install
+      runs-on: windows-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Setup .NET Core
+          uses: actions/setup-dotnet@v1
+          with:
+            dotnet-version: '6.0' # SDK Version to use.
+            source-url: https://nuget.pkg.github.com/test-nuget-2/index.json
+          env:
+            NUGET_AUTH_TOKEN: ${{ secrets.READ_WRITE_PACKAGES_TOKEN }}
+        
+        #- name: dotnet install
+        #  run: dotnet restore
+        #  continue-on-error: true
+          
+        - name: curl install
+          run: curl -vL https://user:${{ secrets.READ_WRITE_PACKAGES_TOKEN }}@nuget.pkg.github.com/test-nuget-2/download/Testpackage1/index.json
+          continue-on-error: true
+          
+    install-npm:
+        name: Install Npm 
+        runs-on: ubuntu-latest
+        permissions:
+         contents: read
+         packages: write
+        steps:
+         - uses: actions/checkout@v2
+         - uses: actions/setup-node@v2
+           with:
+            node-version: 16
+            registry-url: https://npm.pkg.github.com
+         - run: npm install @test-nuget-2/Testpackage2 --registry=https://npm.pkg.github.com
+           env:
+             NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
