@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="nuget-1" Version="1.0.0" />
+    <PackageReference Include="nuget-3" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
