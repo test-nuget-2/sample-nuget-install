@@ -16,14 +16,10 @@ jobs:
           uses: actions/setup-dotnet@v1
           with:
             dotnet-version: '6.0' # SDK Version to use.
-            source-url: https://nuget.pkg.github.com/test-nuget-2/index.json
+            source-url: https://nuget.pkg.github.com/during-migration-nuget-2/index.json
           env:
             NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
             
         - name: dotnet install
           run: dotnet restore
-          continue-on-error: true
-          
-        - name: curl install
-          run: curl -vL https://user:${{secrets.GITHUB_TOKEN}}@nuget.pkg.github.com/test-nuget-2/download/Testpackage1/index.json
           continue-on-error: true
