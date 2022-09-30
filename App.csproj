@@ -5,16 +5,12 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PackageId>Testpackage1</PackageId>
+    <PackageId>TestNugetMigratedpackage</PackageId>
     <Version>1.0.0</Version>
     <Authors>Anshika</Authors>
     <Company>github</Company>
     <RepositoryUrl>https://github.com/test-nuget-2/sample-nuget-install</RepositoryUrl>
     <PackageTags>latest</PackageTags>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="nuget-1" Version="1.0.0" />
-  </ItemGroup>
 
 </Project>
