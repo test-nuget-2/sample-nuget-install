@@ -22,7 +22,7 @@ jobs:
         env:
           sha: ${{ github.sha }}
       - name: Create the nuget package
-        run: dotnet pack sample-nuget.csproj  --configuration Release --output bin/Release/Publish
+        run: dotnet pack App.csproj  --configuration Release --output bin/Release/Publish
         env:
           sha: ${{ github.sha }}
       - name: Publish to GitHub
