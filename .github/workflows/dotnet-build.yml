@@ -1,0 +1,31 @@
+name: dotent-publish
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  build:
+    name: Build & Publish
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0' # SDK Version to use.
+          source-url: https://nuget.pkg.github.com/test-nuget-2/index.json
+        env:
+            NUGET_AUTH_TOKEN: ${{ github.token }}
+      - name: Build Nuget packages
+        run: dotnet build
+        env:
+          sha: ${{ github.sha }}
+      - name: Create the nuget package
+        run: dotnet pack sample-nuget.csproj  --configuration Release --output bin/Release/Publish
+        env:
+          sha: ${{ github.sha }}
+      - name: Publish to GitHub
+        run: dotnet nuget push bin/Release/Publish/**/*.nupkg --api-key ${{secrets.GITHUB_TOKEN}} --skip-duplicate
+        env:
+          sha: ${{ github.sha }}
