@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <PackageId>TestNugetMigratedpackage</PackageId>
+    <PackageId>TestNugetMigratedpackage1</PackageId>
     <Version>1.1.0</Version>
     <Authors>Anshika</Authors>
     <Company>github</Company>
