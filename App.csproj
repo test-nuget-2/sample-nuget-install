@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <PackageId>TestNugetMigratedpackage</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <Authors>Anshika</Authors>
     <Company>github</Company>
     <RepositoryUrl>https://github.com/test-nuget-2/sample-nuget-install</RepositoryUrl>
